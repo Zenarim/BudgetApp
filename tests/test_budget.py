@@ -2,13 +2,14 @@ import unittest
 import unittest.mock as umock
 
 from budget import Budget
+from category import Category
 
 
 class TestBudgetApp(unittest.TestCase):
     def setUp(self):
-        self.fakeCategory = umock.Mock()
+        self.fakeCategory = umock.Mock(spec_set=Category())
         self.fakeCategory.name = 'Fake Category'
-        self.fakeCategory.get_balance = umock.Mock(return_value=500.0)
+        self.fakeCategory.get_total_expenses = umock.Mock(return_value=500.0)
         self.my_budget = Budget()
 
     def test_can_add_categories_to_budget(self):

@@ -14,4 +14,4 @@ class Budget():
                 del self.categories[id]
 
     def get_balance(self):
-        return self._balance - sum(category.get_balance() for category in self.categories)
+        return self._balance - sum(category.get_total_expenses() for category in self.categories)
