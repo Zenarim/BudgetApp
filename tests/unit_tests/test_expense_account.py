@@ -36,7 +36,7 @@ class TestExpenseAccount(unittest.TestCase):
     def test_expense_account_can_return_total_expenses(self):
         self.amazon_account.add_transaction(self.simple_expense)
         self.amazon_account.add_transaction(self.simple_expense)
-        self.assertEqual(-300.0, self.amazon_account.total_spent)
+        self.assertEqual(-300.0, self.amazon_account.account_balance)
 
     def test_expense_account_should_deduct_transactions_from_spending_limit_when_added(self):
         self.amazon_account.add_transaction(self.simple_expense)

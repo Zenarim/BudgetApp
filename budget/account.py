@@ -29,12 +29,12 @@ class ExpenseAccount(Account):
         self.spending_limit = spending_limit
 
     @property
-    def total_spent(self):
+    def account_balance(self):
         return -1 * self.get_total_transactions()
 
     @property
     def remaining_limit(self):
-        return self.spending_limit + self.total_spent
+        return self.spending_limit + self.account_balance
 
 
 class AssetAccount(Account):
@@ -42,6 +42,6 @@ class AssetAccount(Account):
         super().__init__(name)
 
     @property
-    def total_deposits(self):
+    def account_balance(self):
         return self.get_total_transactions()
 
