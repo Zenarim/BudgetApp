@@ -1,14 +1,14 @@
 import unittest
 from unittest.mock import Mock
 
-from goal import Goal
-from transaction import Transaction
+from budget.account import Account
+from budget.transaction import Transaction
 
 
-class TestCategory(unittest.TestCase):
+class TestBaseGoal(unittest.TestCase):
     def setUp(self):
-        self.empty_category = Goal()
-        self.amazon_category = Goal()
+        self.empty_category = Account()
+        self.amazon_category = Account()
         self.simple_transaction = Mock(spec_set=Transaction())
         self.simple_transaction.total_value = 150.0
 

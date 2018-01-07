@@ -1,12 +1,11 @@
 import unittest
-from unittest.mock import Mock
 from datetime import date, timedelta
 
 
-from transaction import Transaction
+from budget.transaction import Transaction
 
 
-class TestBaseTransaction(unittest.TestCase):
+class TestTransaction(unittest.TestCase):
     def setUp(self):
         self.empty_transaction = Transaction()
         self.my_transaction = Transaction(1000.0)
@@ -59,7 +58,3 @@ class TestBaseTransaction(unittest.TestCase):
     def test_can_add_additional_costs_to_transaction(self):
         dinner_transaction = Transaction(base_value=25.0, category='Dinner', tip=5.0, discount=-10.0)
         self.assertEqual(20.0, dinner_transaction.total_value)
-
-
-if '__name__' == '__main__':
-    unittest.main()
