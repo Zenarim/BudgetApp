@@ -39,7 +39,7 @@ class Goal():
                 break
 
     def get_total_transactions(self):
-        return sum(transaction.value for transaction in self._transactions)
+        return sum(transaction.total_value for transaction in self._transactions)
 
     def get_remaining_goal(self):
         return self._goal - self.get_total_transactions()

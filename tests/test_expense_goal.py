@@ -2,14 +2,15 @@ import unittest
 from unittest.mock import Mock
 
 from goal import ExpenseGoal
+from transaction import Transaction
 
 
 class TestExpenseCategory(unittest.TestCase):
     def setUp(self):
         self.expense_goal = ExpenseGoal()
         self.amazon_goal = ExpenseGoal(name='Amazon', goal=1000.0)
-        self.simple_expense = Mock()
-        self.simple_expense.value = 150.0
+        self.simple_expense = Mock(spec_set=Transaction())
+        self.simple_expense.total_value = 150.0
 
     def test_expense_goals_should_have_default_name_uncategorized(self):
         self.assertEqual('UncategorizedExpenseGoal', self.expense_goal.name)

@@ -2,14 +2,15 @@ import unittest
 from unittest.mock import Mock
 
 from goal import Goal
+from transaction import Transaction
 
 
 class TestCategory(unittest.TestCase):
     def setUp(self):
         self.empty_category = Goal()
         self.amazon_category = Goal()
-        self.simple_transaction = Mock()
-        self.simple_transaction.value = 150.0
+        self.simple_transaction = Mock(spec_set=Transaction())
+        self.simple_transaction.total_value = 150.0
 
     def test_transactions_can_be_added_to_category(self):
         self.amazon_category.add_transaction(self.simple_transaction)
