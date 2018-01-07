@@ -28,11 +28,6 @@ class TestBudgetApp(unittest.TestCase):
     def test_budget_will_have_default_balance_of_zero(self):
         self.assertEqual(0.0, self.blank_budget.account_balance)
 
-    def test_budget_can_set_default_balance(self):
-        starting_balance = 1000.0
-        my_budget = Budget(start_balance=self.asset_account)
-        self.assertEqual(starting_balance, my_budget.account_balance)
-
     def test_budget_can_return_total_expenses(self):
         self.blank_budget.add_account(self.expense_account)
         self.blank_budget.add_account(self.expense_account)

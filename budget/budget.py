@@ -1,11 +1,8 @@
 
 
 class Budget():
-    def __init__(self, start_balance=None):
+    def __init__(self):
         self._accounts = []
-
-        if start_balance:
-            self._accounts.append(start_balance)
 
     def add_account(self, account):
         # Need to verify account is correct interface
@@ -20,6 +17,9 @@ class Budget():
 
     def __contains__(self, account):
         return account in self._accounts
+
+    def __len__(self):
+        return len(self._accounts)
 
     @property
     def account_balance(self):
