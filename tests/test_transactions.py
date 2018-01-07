@@ -1,4 +1,5 @@
 import unittest
+from unittest.mock import Mock
 from datetime import date, timedelta
 
 
@@ -21,9 +22,6 @@ class TestBaseTransaction(unittest.TestCase):
         self.empty_transaction.base_value = 1000.0
         self.assertEqual(1000.0, self.empty_transaction.base_value)
 
-    def test_transaction_can_get_total_cost(self):
-        self.assertEqual(1000.0, self.my_transaction.total_cost)
-
     def test_transactions_will_have_default_creation_date_of_today(self):
         today_date = date.today()
         new_transaction = Transaction()
@@ -43,6 +41,24 @@ class TestBaseTransaction(unittest.TestCase):
         late_entry_date = date.today() - timedelta(days=30)
         self.my_transaction.date_entered = late_entry_date
         self.assertEqual(late_entry_date, self.my_transaction.date_entered)
+
+    def test_transaction_raises_exception_if_non_date_used_for_entry_date(self):
+        self.assertRaises(TypeError, self.empty_transaction.date_entered, 5)
+
+    def test_transactions_have_a_default_category(self):
+        self.assertEqual('UncategorizedTransaction', self.empty_transaction.category)
+
+    def test_transactions_can_set_their_category_at_creation(self):
+        amazon_transaction = Transaction(category='Amazon')
+        self.assertEqual('Amazon', amazon_transaction.category)
+
+    def test_transaction_can_set_their_category_after_creation(self):
+        self.empty_transaction.category = 'ChangedCategory'
+        self.assertEqual('ChangedCategory', self.empty_transaction.category)
+
+    def test_can_add_additional_costs_to_transaction(self):
+        dinner_transaction = Transaction(base_value=25.0, category='Dinner', tip=5.0, discount=-10.0)
+        self.assertEqual(20.0, dinner_transaction.total_value)
 
 
 if '__name__' == '__main__':
