@@ -25,6 +25,10 @@ class Account:
 
 class ExpenseAccount(Account):
     def __init__(self, name='UncategorizedExpenseAccount', spending_limit=0.0):
+        """
+        :param name: The name of the account itself
+        :param spending_limit: An arbitrary limit that the user is committing to not exceed
+        """
         super().__init__(name)
         self.spending_limit = spending_limit
 
