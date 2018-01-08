@@ -33,16 +33,16 @@ class TestTransaction(unittest.TestCase):
 
     def test_transaction_entry_date_can_be_set_at_creation(self):
         entry_date = date.today() + timedelta(days=30)
-        new_transaction = Transaction(date_entered=entry_date)
-        self.assertEqual(entry_date, new_transaction.date_entered)
+        new_transaction = Transaction(transaction_date=entry_date)
+        self.assertEqual(entry_date, new_transaction.transaction_date)
 
     def test_transaction_entry_date_can_be_modified_after_creation(self):
         late_entry_date = date.today() - timedelta(days=30)
-        self.my_transaction.date_entered = late_entry_date
-        self.assertEqual(late_entry_date, self.my_transaction.date_entered)
+        self.my_transaction.transaction_date = late_entry_date
+        self.assertEqual(late_entry_date, self.my_transaction.transaction_date)
 
     def test_transaction_raises_exception_if_non_date_used_for_entry_date(self):
-        self.assertRaises(TypeError, self.empty_transaction.date_entered, 5)
+        self.assertRaises(TypeError, self.empty_transaction.transaction_date, 5)
 
     def test_transactions_have_a_default_category(self):
         self.assertEqual('UncategorizedTransaction', self.empty_transaction.category)

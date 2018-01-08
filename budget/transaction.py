@@ -2,22 +2,29 @@ from datetime import date
 
 
 class Transaction:
-    def __init__(self, base_value=0.0, creation_date=date.today(), date_entered=date.today(),
+    def __init__(self, base_value=0.0, creation_date=date.today(), transaction_date=date.today(),
                  category='UncategorizedTransaction', **kwargs):
+        """
+        :param base_value: The base amount being spent / deposited
+        :param creation_date: The date the entry was made
+        :param transaction_date: The date the transaction occurred
+        :param category: The category this type of transaction would fall under
+        :param kwargs:  Transactions can have additional costs / discounts
+        """
         self.base_value = base_value
         self.category = category
         self.creation_date = creation_date
-        self._date_entered = date_entered
+        self._transaction_date = transaction_date
         self.additional_costs = kwargs
 
     @property
-    def date_entered(self):
-        return self._date_entered
+    def transaction_date(self):
+        return self._transaction_date
 
-    @date_entered.setter
-    def date_entered(self, date_entered):
+    @transaction_date.setter
+    def transaction_date(self, date_entered):
         if isinstance(date_entered, date):
-            self._date_entered = date_entered
+            self._transaction_date = date_entered
         else:
             raise TypeError("Must use a date object.")
 
