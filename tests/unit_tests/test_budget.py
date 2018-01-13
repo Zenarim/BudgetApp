@@ -1,9 +1,9 @@
 import unittest
 from unittest.mock import Mock
 
-from budget.budget import Budget
-from budget.account import ExpenseAccount
-from budget.account import AssetAccount
+from budget_core.budget import Budget
+from budget_core.account import ExpenseAccount
+from budget_core.account import AssetAccount
 
 
 class TestBudgetApp(unittest.TestCase):
