@@ -1,9 +1,9 @@
 import unittest
 
-from budget.budget import Budget
-from budget.account import ExpenseAccount
-from budget.account import AssetAccount
-from budget.transaction import Transaction
+from budget_core.budget import Budget
+from budget_core.account import ExpenseAccount
+from budget_core.account import AssetAccount
+from budget_core.transaction import Transaction
 
 
 class TestBudgetCoreComponents(unittest.TestCase):

@@ -1,8 +1,8 @@
 import unittest
 from unittest.mock import Mock
 
-from budget.account import Account
-from budget.transaction import Transaction
+from budget_core.account import Account
+from budget_core.transaction import Transaction
 
 
 class TestBaseAccount(unittest.TestCase):

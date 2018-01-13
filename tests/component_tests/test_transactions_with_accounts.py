@@ -1,9 +1,9 @@
 import unittest
 from datetime import date, timedelta
 
-from budget.account import AssetAccount
-from budget.account import ExpenseAccount
-from budget.transaction import Transaction
+from budget_core.account import AssetAccount
+from budget_core.account import ExpenseAccount
+from budget_core.transaction import Transaction
 
 
 class TestTransactionsWithAccounts(unittest.TestCase):

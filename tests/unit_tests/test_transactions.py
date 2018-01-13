@@ -2,7 +2,7 @@ import unittest
 from datetime import date, timedelta
 
 
-from budget.transaction import Transaction
+from budget_core.transaction import Transaction
 
 
 class TestTransaction(unittest.TestCase):
